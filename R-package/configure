@@ -1683,7 +1683,7 @@ if test -z "${R_HOME}"; then
 fi
 CC=`"${R_HOME}/bin/R" CMD config CC`
 CXX=`"${R_HOME}/bin/R" CMD config CXX11`
-LDFLAGS=`"{R_HOME}/bin/R" CMD config LDFLAGS`
+LDFLAGS=`"${R_HOME}/bin/R" CMD config LDFLAGS`
 
 # LightGBM-specific flags
 LGB_CPPFLAGS=""
