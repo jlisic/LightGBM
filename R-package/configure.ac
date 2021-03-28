@@ -22,6 +22,7 @@ if test -z "${R_HOME}"; then
 fi
 CC=`"${R_HOME}/bin/R" CMD config CC`
 CXX=`"${R_HOME}/bin/R" CMD config CXX11`
+LDFLAGS=`"{R_HOME}/bin/R" CMD config LDFLAGS`
 
 # LightGBM-specific flags
 LGB_CPPFLAGS=""
@@ -116,7 +117,7 @@ then
             )
         ]
     )
-    ${CC} -o conftest conftest.c ${OPENMP_LIB} ${OPENMP_CXXFLAGS} 2>/dev/null && ./conftest && ac_pkg_openmp=yes
+    ${CC} -o conftest conftest.c ${LDFLAGS} ${OPENMP_LIB} ${OPENMP_CXXFLAGS} 2>/dev/null && ./conftest && ac_pkg_openmp=yes
     AC_MSG_RESULT([${ac_pkg_openmp}])
     if test "${ac_pkg_openmp}" = no; then
         OPENMP_CXXFLAGS=''
